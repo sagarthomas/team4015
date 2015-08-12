@@ -30,6 +30,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
+        
     }
 	
 	public void disabledPeriodic() {
@@ -39,7 +40,7 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         // schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
-        // Hello World branch !
+       
     }
 
     /**
