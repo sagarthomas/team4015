@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team4015.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4015.robot.commands.autonomous.autonomousCommand;
 import org.usfirst.frc.team4015.robot.commands.Teleop;
 import org.usfirst.frc.team4015.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4015.robot.subsystems.ExampleSubsystem;
@@ -26,7 +27,7 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain driveTrain;
 
     Command autonomousCommand;
-    Teleop teleopCommand;
+    Command teleopCommand;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -37,7 +38,8 @@ public class Robot extends IterativeRobot {
 		
         // instantiate the command used for the autonomous period
 		// hey
-        autonomousCommand = new ExampleCommand();
+        autonomousCommand = new autonomousCommand();
+        teleopCommand = new Teleop();
         driveTrain = new DriveTrain();
         
     }
