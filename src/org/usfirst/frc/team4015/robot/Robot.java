@@ -3,9 +3,13 @@ package org.usfirst.frc.team4015.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
 import org.usfirst.frc.team4015.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4015.robot.commands.Teleop;
+import org.usfirst.frc.team4015.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4015.robot.subsystems.ExampleSubsystem;
 
 /**
@@ -19,8 +23,10 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
+	public static DriveTrain driveTrain;
 
     Command autonomousCommand;
+    Teleop teleopCommand;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -28,9 +34,11 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
+		
         // instantiate the command used for the autonomous period
 		// hey
         autonomousCommand = new ExampleCommand();
+        driveTrain = new DriveTrain();
         
     }
 	
@@ -56,7 +64,10 @@ public class Robot extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (autonomousCommand != null) autonomousCommand.cancel();
+        if (autonomousCommand != null) {
+        	teleopCommand.start();
+        	autonomousCommand.cancel();
+        }
     }
 
     /**
