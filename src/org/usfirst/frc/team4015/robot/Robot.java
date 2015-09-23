@@ -7,11 +7,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
-import org.usfirst.frc.team4015.robot.commands.ExampleCommand;
+
 import org.usfirst.frc.team4015.robot.commands.autonomous.autonomousCommand;
 import org.usfirst.frc.team4015.robot.commands.Teleop;
 import org.usfirst.frc.team4015.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team4015.robot.subsystems.ExampleSubsystem;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -22,7 +22,7 @@ import org.usfirst.frc.team4015.robot.subsystems.ExampleSubsystem;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	//public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static DriveTrain driveTrain;
 
@@ -39,9 +39,8 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
 		// hey
         autonomousCommand = new autonomousCommand();
-        teleopCommand = new Teleop();
         driveTrain = new DriveTrain();
-        
+        teleopCommand = new Teleop();
     }
 	
 	public void disabledPeriodic() {

@@ -1,13 +1,15 @@
 package org.usfirst.frc.team4015.robot.commands;
 
 import org.usfirst.frc.team4015.robot.Robot;
+import org.usfirst.frc.team4015.robot.subsystems.DriveTrain;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 public class Drive extends Command{
 
 	public Drive() {
 		// TODO Auto-generated constructor stub
-		requires(Robot.driveTrain);
+		
 	}
 
 	@Override
@@ -18,7 +20,7 @@ public class Drive extends Command{
 
 	@Override
 	protected void execute() {
-		Robot.driveTrain.tankDrive();
+		Robot.driveTrain.mecanumDrive();
 		
 	}
 

@@ -18,12 +18,12 @@ public class DriveTrain extends Subsystem {
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-	
+		
 		
 	}
 	
 	public void mecanumDrive() {
-		//chassis.mecanumDrive_Cartesian(Robot.oi.driveStick.getX(), Robot.oi.driveStick.getY(), rotation, gyroAngle);
+		chassis.mecanumDrive_Cartesian(Robot.oi.driveStickLeft.getX(), Robot.oi.driveStickLeft.getY(), Robot.oi.driveStickLeft.getZ(), 0);
 		
 	}
 	
