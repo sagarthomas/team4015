@@ -1,7 +1,7 @@
 package org.usfirst.frc.team4015.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
+//import edu.wpi.first.wpilibj.buttons.Button;
 
 
 
@@ -44,6 +44,7 @@ public class OI {
 		
 		driveStickRight = new Joystick(0);
 		driveStickLeft = new Joystick(1);
+		
 	}
 	
 	public Joystick getJoystick() {

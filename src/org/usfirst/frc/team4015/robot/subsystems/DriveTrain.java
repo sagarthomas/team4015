@@ -20,11 +20,37 @@ public class DriveTrain extends Subsystem {
 		// TODO Auto-generated method stub
 		
 		
+		
 	}
 	
 	public void mecanumDrive() {
-		chassis.mecanumDrive_Cartesian(Robot.oi.driveStickLeft.getX(), Robot.oi.driveStickLeft.getY(), Robot.oi.driveStickLeft.getZ(), 0);
+		chassis.mecanumDrive_Cartesian(Robot.oi.driveStickLeft.getX(), 0 ,0, 0);
 		
+	}
+	
+	public void mecanumDriveAuto(String direction) {
+		double x;
+		double y;
+		if (direction == "forward") {
+			x = 0;
+			y = -0.5;
+		}
+		else if(direction == "right") {
+			x = -0.5;
+			y = 0;
+		}
+		else if(direction == "left") {
+			x = 0.5;
+			y = 0;
+		}
+		else if(direction == "backward") {
+			x = 0;
+			y = 0.5;
+		} else {
+			x = 0;
+			y = 0;
+		}
+		chassis.mecanumDrive_Cartesian(x, y, 0, 0);
 	}
 	
 	public void tankDrive() {
