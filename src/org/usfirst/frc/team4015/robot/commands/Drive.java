@@ -20,7 +20,7 @@ public class Drive extends Command{
 
 	@Override
 	protected void execute() {
-		Robot.driveTrain.mecanumDrive();
+		Robot.driveTrain.tankDrive();
 		
 	}
 

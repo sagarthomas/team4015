@@ -1,16 +1,17 @@
 
 package org.usfirst.frc.team4015.robot;
 
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 //import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
-
 import org.usfirst.frc.team4015.robot.commands.autonomous.autonomousCommand;
 import org.usfirst.frc.team4015.robot.commands.Teleop;
 import org.usfirst.frc.team4015.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4015.robot.subsystems.Pneumatics;
 
 
 /**
@@ -25,6 +26,7 @@ public class Robot extends IterativeRobot {
 	//public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static DriveTrain driveTrain;
+	public static Pneumatics pneumatics;
 
     Command autonomousCommand;
     Command teleopCommand;
@@ -40,6 +42,7 @@ public class Robot extends IterativeRobot {
 		// hey
         autonomousCommand = new autonomousCommand();
         driveTrain = new DriveTrain();
+        pneumatics = new Pneumatics();
         teleopCommand = new Teleop();
     }
 	

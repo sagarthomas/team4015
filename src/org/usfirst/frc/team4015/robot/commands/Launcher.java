@@ -2,35 +2,35 @@ package org.usfirst.frc.team4015.robot.commands;
 
 import org.usfirst.frc.team4015.robot.Robot;
 
-import edu.wpi.first.wpilibj.Timer;
+
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class SquareDrive extends Command {
-	Timer timer;
-	int direction = 1;
+public class Launcher extends Command {
 
-    public SquareDrive() {
+    public Launcher() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	timer = new Timer();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	timer.start();
-    	while (timer.hasPeriodPassed(3)) {
-    		Robot.driveTrain.mecanumDriveAuto(direction);
+    	if(Robot.oi.driveStickLeft.getTrigger()) {
+    		Robot.pneumatics.shoot();
     	}
-    	timer.stop();
-    	timer.reset();
-    	direction++;
+    	else if(Robot.oi.driveStickLeft.getRawButton(0)){ // pick appropriate buttons needed
+    		Robot.pneumatics.toggleCompressor();
+    	}
+    	else if(Robot.oi.driveStickLeft.getRawButton(1)) {
+    		Robot.pneumatics.resetPosition();
+    	}
     	
     }
 
