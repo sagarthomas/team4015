@@ -29,6 +29,7 @@ public class Teleop extends CommandGroup {
     	
     	addParallel(new Drive());
     	addParallel(new Launcher());
+    	addParallel(new LauncherArm());
     	// more commands to come below
     }
 }

@@ -3,9 +3,10 @@ package org.usfirst.frc.team4015.robot.subsystems;
 import org.usfirst.frc.team4015.robot.Robot;
 import org.usfirst.frc.team4015.robot.RobotMap;
 
-
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class DriveTrain extends Subsystem {
@@ -15,11 +16,16 @@ public class DriveTrain extends Subsystem {
 	Talon rearLeft = new Talon(RobotMap.Pwm.RearLeftDrive);
 	Talon rearRight = new Talon(RobotMap.Pwm.RearRightDrive);
 	RobotDrive chassis = new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+	
 	private double threshold = 0.24;
 
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
+		// Following reverse motor code only used for Arial Assist Robot
+		chassis.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+		chassis.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
+		chassis.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+		chassis.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 		
 		
 		
@@ -27,10 +33,7 @@ public class DriveTrain extends Subsystem {
 	}
 	
 	public void mecanumDrive() {
-		
 		chassis.mecanumDrive_Cartesian(checkThreshold(Robot.oi.driveStickLeft.getX()),checkThreshold(Robot.oi.driveStickLeft.getY()) ,0, 0);
-		
-		
 	}
 	
 	private double checkThreshold(double value) {
@@ -67,9 +70,27 @@ public class DriveTrain extends Subsystem {
 	}
 	
 	public void tankDrive() {
-		chassis.mecanumDrive_Cartesian(0, checkThreshold(Robot.oi.driveStickLeft.getY()), checkThreshold(Robot.oi.driveStickLeft.getX()), 0);
+		System.out.println("driving");
+		chassis.mecanumDrive_Cartesian(0, checkThreshold(Robot.oi.driveStickLeft.getX()), checkThreshold(Robot.oi.driveStickLeft.getY()), 0);
 	}
 	
+	/*
+	public void armMovement(int direction) {
+		if (direction == 1) {
+			System.out.println("hi");
+			armMotor.set(1);
+			Timer.delay(3);
+			armMotor.stopMotor();
+		} 
+		else if(direction == -1) {
+			armMotor.set(1);
+			Timer.delay(3);
+			armMotor.stopMotor();
+		}
+		else if (direction == 0)
+			armMotor.stopMotor();
+	}
+	*/
 	public void stop() {
 		chassis.drive(0, 0);
 	}

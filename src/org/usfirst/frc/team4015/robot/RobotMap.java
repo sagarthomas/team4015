@@ -17,10 +17,11 @@ public class RobotMap {
     // public static int rangefinderModule = 1;
 	
 	public static class Pwm {
-		public static final int FrontLeftDrive = 1;
-		public static final int RearLeftDrive = 0;
-		public static final int FrontRightDrive = 3;
-		public static final int RearRightDrive = 2;
+		public static final int FrontLeftDrive = 3;
+		public static final int RearLeftDrive = 2;
+		public static final int FrontRightDrive = 1;
+		public static final int RearRightDrive = 0;
+		public static final int LauncherArm = 5;
 	}
 	
 	// Analog Inputs

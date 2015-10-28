@@ -8,25 +8,21 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Drive extends Command{
 
 	public Drive() {
-		// TODO Auto-generated constructor stub
 		
 	}
 
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	protected void execute() {
 		Robot.driveTrain.tankDrive();
-		
 	}
 
 	@Override
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
