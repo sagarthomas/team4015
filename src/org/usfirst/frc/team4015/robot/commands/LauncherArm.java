@@ -31,7 +31,7 @@ public class LauncherArm extends Command {
     	}
     	else if(Robot.oi.driveStickLeft.getRawButton(7)){
     		//Robot.driveTrain.armMovement(-1);
-    		armMotor.set(-0.5);
+    		armMotor.set(-1.0);
     	}
     	else {
     		armMotor.set(0);
