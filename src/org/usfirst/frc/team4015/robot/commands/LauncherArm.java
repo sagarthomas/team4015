@@ -11,27 +11,28 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class LauncherArm extends Command {
-	private VictorSP armMotor;
+private Victor armMotor = new Victor(RobotMap.Pwm.LauncherArm);
 
     public LauncherArm() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	 armMotor = new VictorSP(RobotMap.Pwm.LauncherArm);
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if (Robot.oi.driveStickLeft.getRawButton(6)){ 
     		//Robot.driveTrain.armMovement(1);
-    		armMotor.set(1.0);
+    		armMotor.set(0.65);
     	}
     	else if(Robot.oi.driveStickLeft.getRawButton(7)){
     		//Robot.driveTrain.armMovement(-1);
-    		armMotor.set(-1.0);
+    		armMotor.set(-0.65);
     	}
     	else {
     		armMotor.set(0);
