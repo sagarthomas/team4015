@@ -48,8 +48,16 @@ public class Pneumatics extends Subsystem {
     }
     
     public void resetPosition() {
+    	int i = 0;
+    	while(i < 5){
     	solenoid.set(true);
     	solenoid2.set(false);
+    	Timer.delay(0.05);
+    	solenoid.set(false);
+    	solenoid2.set(false);
+    	Timer.delay(0.4);
+    	i++;
+    	}
     	/*
     	pistons.set(DoubleSolenoid.Value.kReverse);
     	Timer.delay(1);
