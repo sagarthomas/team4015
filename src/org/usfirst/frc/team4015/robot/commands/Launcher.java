@@ -26,7 +26,7 @@ public class Launcher extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
+    	Robot.pneumatics.getMagPosition(); // Displays Mag Switch state
     	if(Robot.oi.driveStickLeft.getRawButton(1)) {
     		Robot.pneumatics.shoot();
     	}

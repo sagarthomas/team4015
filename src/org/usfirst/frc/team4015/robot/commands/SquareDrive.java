@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4015.robot.commands;
 
 import org.usfirst.frc.team4015.robot.Robot;
+import org.usfirst.frc.team4015.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -15,6 +16,7 @@ public class SquareDrive extends Command {
     public SquareDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+
     }
 
     // Called just before this Command runs the first time
