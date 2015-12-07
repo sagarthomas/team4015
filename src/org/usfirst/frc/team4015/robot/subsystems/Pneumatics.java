@@ -58,7 +58,6 @@ public class Pneumatics extends Subsystem {
 	    	piston.set(true);
 	    	piston2.set(false);
     	}
-    	
     }
     
     public void getMagPosition() {

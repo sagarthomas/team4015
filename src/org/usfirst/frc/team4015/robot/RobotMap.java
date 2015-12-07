@@ -28,4 +28,8 @@ public class RobotMap {
 	public static class Analog {
 		public static final int Gyro = 0;
 	}
+	
+	public static class DigitalIn {
+		public static final int ReedSwitch0 = 0;
+	}		
 }
