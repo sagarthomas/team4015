@@ -27,6 +27,7 @@ public class autonomousCommand extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential(new SquareDrive());
+    	//addSequential(new SquareDrive());
+    	addParallel(new UltrasonicTest());
     }
 }

@@ -23,6 +23,9 @@ public class Pneumatics extends Subsystem {
 	Solenoid piston = new Solenoid(0);
 	Solenoid piston2 = new Solenoid(1);
 	
+	int count = 0;
+	public boolean isStopped = false;
+	
 	DigitalInput magSwitch = new DigitalInput(RobotMap.DigitalIn.ReedSwitch0);
 	
     // Put methods for controlling this subsystem
@@ -42,26 +45,41 @@ public class Pneumatics extends Subsystem {
     }
     
     public void shoot() {
-    	piston.set(false);
-    	piston2.set(true);
+    	piston.set(true);
+    	piston2.set(false);
     	
     	
     }
     
     public void resetPosition() {
     	
+    	count++;
+    	//piston.set(false);
+		//piston2.set(true);
+		
     	if (magSwitch.get()) {
     		piston.set(false);
     		piston2.set(true);
     	} 
-    	else if(!magSwitch.get()){
-	    	piston.set(true);
-	    	piston2.set(false);
+    	else {
+	    	stop();
     	}
+    	
     }
     
-    public void getMagPosition() {
+    public void stop(){
+    	isStopped = true;
+    	
+    	piston.set(false);
+    	piston2.set(false);
+    	isStopped = false;
+    }
+    
+   
+	public boolean getMagPosition() {
     	SmartDashboard.putBoolean("Mag Switch state", magSwitch.get());
+    	SmartDashboard.putNumber("Cycle number", count);
+    	return magSwitch.get();
     }
 }
 
