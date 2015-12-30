@@ -5,11 +5,13 @@ import org.usfirst.frc.team4015.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Solenoid;
-//import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.Victor;
+
+//import edu.wpi.first.wpilibj.DoubleSolenoid;
+//import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import org.usfirst.frc.team4015.robot.DoubleSolenoid;
+import org.usfirst.frc.team4015.robot.DoubleSolenoid.Value;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -20,8 +22,10 @@ public class Pneumatics extends Subsystem {
     
 	Compressor compressor = new Compressor();
 	
-	Solenoid piston = new Solenoid(0);
-	Solenoid piston2 = new Solenoid(1);
+	//Solenoid piston = new Solenoid(0);
+	//Solenoid piston2 = new Solenoid(1);
+	
+	DoubleSolenoid solenoid = new DoubleSolenoid(0, 1);
 	
 	int count = 0;
 	public boolean isStopped = false;
@@ -45,9 +49,10 @@ public class Pneumatics extends Subsystem {
     }
     
     public void shoot() {
-    	piston.set(true);
-    	piston2.set(false);
-    	
+    	//piston.set(true);
+    	//piston2.set(false);
+    	solenoid.set(Value.kForward);
+    	 
     	
     }
     
@@ -57,22 +62,27 @@ public class Pneumatics extends Subsystem {
     	//piston.set(false);
 		//piston2.set(true);
 		
-    	if (magSwitch.get()) {
-    		piston.set(false);
-    		piston2.set(true);
+    	if (magSwitch.get() == true) {
+    		//piston.set(false);
+    		//piston2.set(true);
+    		solenoid.set(Value.kReverse);
     	} 
     	else {
-	    	stop();
+	    	//solenoid.set(Value.kOff);
+    		SmartDashboard.getBoolean("Else", true);
+	    	solenoid.set(Value.kOff);
+	    	//solenoid.set(Value.kOff);
     	}
     	
     }
     
     public void stop(){
-    	isStopped = true;
+    	solenoid.set(Value.kOff);
+    	while(!Robot.oi.driveStickLeft.getRawButton(1) && !Robot.oi.driveStickLeft.getRawButton(2)){
+    		solenoid.set(Value.kForward);
+    		solenoid.set(Value.kReverse);
+    	}
     	
-    	piston.set(false);
-    	piston2.set(false);
-    	isStopped = false;
     }
     
    

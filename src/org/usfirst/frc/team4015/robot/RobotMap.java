@@ -22,6 +22,8 @@ public class RobotMap {
 		public static final int FrontRightDrive = 1;
 		public static final int RearRightDrive = 0;
 		public static final int LauncherArm = 5;
+		public static final int FrontServo = 6;
+		public static final int BackServo = 7;
 	}
 	
 	// Analog Inputs
@@ -31,5 +33,12 @@ public class RobotMap {
 	
 	public static class DigitalIn {
 		public static final int ReedSwitch0 = 0;
-	}		
+		public static final int DI2 = 2;
+		public static final int DI4 = 4;
+	}
+	
+	public static class DigitalOut {
+		public static final int DO1 = 1;
+		public static final int DO3 = 3;
+	}
 }

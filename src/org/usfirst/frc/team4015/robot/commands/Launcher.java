@@ -21,7 +21,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Launcher extends Command {
 
     public Launcher() {
-        // Use requires() here to declare subsystem dependencies
+        // Use requires() here to declare subsystem dependencies 
         // eg. requires(chassis);
     }
 
@@ -32,7 +32,7 @@ public class Launcher extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.pneumatics.getMagPosition(); // Displays Mag Switch state
+    	
     	SmartDashboard.putBoolean("Is Stopped", Robot.pneumatics.isStopped);
     	if(Robot.oi.driveStickLeft.getRawButton(1)) {
     		Robot.pneumatics.shoot();
@@ -43,10 +43,14 @@ public class Launcher extends Command {
     	else if(Robot.oi.driveStickLeft.getRawButton(2)) {
     		Timer.delay(0.1);
     		Robot.pneumatics.resetPosition();
+    		Robot.pneumatics.getMagPosition(); // Displays Mag Switch state
     		
     	}
-    	else {
+    	else if(Robot.oi.driveStickLeft.getRawButton(4)) {
     		Robot.pneumatics.stop();
+    	}
+    	else {
+    		//Robot.pneumatics.stop();
     	}
     	
     	
