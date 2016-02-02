@@ -29,5 +29,6 @@ public class autonomousCommand extends CommandGroup {
     	
     	//addSequential(new SquareDrive());
     	addParallel(new UltrasonicTest());
+    	
     }
 }

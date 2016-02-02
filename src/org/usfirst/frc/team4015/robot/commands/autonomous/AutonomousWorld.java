@@ -1,8 +1,9 @@
 package org.usfirst.frc.team4015.robot.commands.autonomous;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team4015.robot.commands.autonomous.util.World;
 
-public class AutonomousWorld extends Command{
+public class AutonomousWorld extends Command {
 
 	public AutonomousWorld() {
 		// TODO Auto-generated constructor stub
@@ -37,6 +38,5 @@ public class AutonomousWorld extends Command{
 		// TODO Auto-generated method stub
 		
 	}
-	
 
 }

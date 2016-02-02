@@ -5,14 +5,17 @@ import java.util.ArrayList;
 import org.usfirst.frc.team4015.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Servo;
-import edu.wpi.first.wpilibj.Ultrasonic;
+import org.usfirst.frc.team4015.robot.commands.autonomous.util.Ultrasonic;
 
 public class World {
 	Servo frontServo = new Servo(RobotMap.Pwm.FrontServo);
 	Servo backServo = new Servo(RobotMap.Pwm.BackServo);
 	
-	Ultrasonic front = new Ultrasonic(RobotMap.DigitalOut.DO1, RobotMap.DigitalIn.DI2);
-	Ultrasonic back = new Ultrasonic(RobotMap.DigitalOut.DO3, RobotMap.DigitalIn.DI4);
+	//Ultrasonic front = new Ultrasonic(RobotMap.DigitalOut.DO1, RobotMap.DigitalIn.DI2);
+	//Ultrasonic back = new Ultrasonic(RobotMap.DigitalOut.DO3, RobotMap.DigitalIn.DI4);
+	
+	Ultrasonic front = new Ultrasonic(RobotMap.DigitalIn.DI2);
+	Ultrasonic back = new Ultrasonic(RobotMap.DigitalIn.DI4);
 	
 	ArrayList<GameObject> objects;
 	
@@ -33,7 +36,7 @@ public class World {
 				objects.add(new GameObject(angle, distance));
 			
 			backServo.setAngle(angle);
-			back.ping();
+			//back.ping();
 			distance = (back.getRangeMM() * 1000);
 			if (isObject(distance))
 				objects.add(new GameObject(angle, distance));
